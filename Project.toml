@@ -4,6 +4,7 @@ authors = ["Curtis Vogt <curtis.vogt@gmail.com>"]
 version = "1.2.0"
 
 [deps]
+BinaryProvider = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
 Mocking = "78c3b35d-d492-501b-9361-3d52fe80e533"
