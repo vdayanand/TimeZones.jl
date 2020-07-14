@@ -1,7 +1,7 @@
 name = "TimeZones"
 uuid = "f269a46b-ccf7-5d73-abea-4c690281aa53"
 authors = ["Curtis Vogt <curtis.vogt@gmail.com>"]
-version = "1.2.0"
+version = "1.2.90"
 
 [deps]
 BinaryProvider = "b99e7846-7c00-51b0-8f62-c81ae34c0232"
