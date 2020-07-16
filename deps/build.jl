@@ -281,7 +281,7 @@ end
 version =  tzdata_version()
 download_url = TZDATA_RELEASES_URLS[version]
 archive = joinpath(ARCHIVE_DIR, "tzdata$(version).tar.gz")
-download_with_fallback(download_url, archive, TZDATA_FALLBACK_URL_LATEST)
+!isfile(archive) && download_with_fallback(download_url, archive, TZDATA_FALLBACK_URL_LATEST)
 if !isarchive(archive)
     rm(archive)
     error("Unable to download $version tzdata")
