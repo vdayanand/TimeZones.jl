@@ -4,7 +4,7 @@ using TimeZones.TZData: ARCHIVE_DIR,  tzdata_version, isarchive
 @static if Sys.iswindows()
     using TimeZones.WindowsTimeZoneIDs: WINDOWS_XML_FILE, WINDOWS_ZONE_URL
     const WINDOWS_DOWNLOAD_LINK_FALLBACK = WINDOWS_ZONE_URL
-    const WINDOWS_DOWNLOAD_LINK = "https://github.com/vdayanand/TimeZones.jl/releases/v1.2.90/windowsZones.xml"
+    const WINDOWS_DOWNLOAD_LINK = "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.2.90/windowsZones.xml"
 end
 
 const TZDATA_FALLBACK_URL_LATEST = "https://data.iana.org/time-zones/tzdata-latest.tar.gz"
