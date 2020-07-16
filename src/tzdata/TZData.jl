@@ -11,7 +11,7 @@ const ARCHIVE_DIR = joinpath(DEPS_DIR, "tzarchive")
 const TZ_SOURCE_DIR = joinpath(DEPS_DIR, "tzsource")
 const COMPILED_DIR = joinpath(DEPS_DIR, "compiled")
 
-export ARCHIVE_DIR, TZ_SOURCE_DIR, COMPILED_DIR, REGIONS, LEGACY_REGIONS
+export ARCHIVE_DIR, TZ_SOURCE_DIR, COMPILED_DIR, REGIONS, LEGACY_REGIONS, isarchive
 
 if Sys.iswindows()
     if isdefined(Base, :LIBEXECDIR)
