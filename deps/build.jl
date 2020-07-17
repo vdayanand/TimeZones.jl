@@ -251,8 +251,7 @@ const TZDATA_RELEASES_URLS = Dict(
     "96e" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdata96e.tar.gz",
     "96h" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdata96h.tar.gz",
     "96i" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdata96i.tar.gz",
-    "96k" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdata96k.tar.gz",
-    "beta" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdatabeta.tar.gz"
+    "96k" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.3.90/tzdata96k.tar.gz"
 )
 
 function download(url, destination)
