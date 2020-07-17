@@ -1,5 +1,5 @@
 using TimeZones: build
-@static if VERSION < 1.3.0
+@static if VERSION < v"1.3.0"
 
 using BinaryProvider
 using TimeZones.TZData: ARCHIVE_DIR,  tzdata_version, isarchive
