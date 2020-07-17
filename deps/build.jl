@@ -3,11 +3,9 @@ using TimeZones: build
 using TimeZones.TZData: ARCHIVE_DIR,  tzdata_version, isarchive
 @static if Sys.iswindows()
     using TimeZones.WindowsTimeZoneIDs: WINDOWS_XML_FILE, WINDOWS_ZONE_URL
-    const WINDOWS_DOWNLOAD_LINK_FALLBACK = WINDOWS_ZONE_URL
     const WINDOWS_DOWNLOAD_LINK = "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.2.90/windowsZones.xml"
 end
 
-const TZDATA_FALLBACK_URL_LATEST = "https://data.iana.org/time-zones/tzdata-latest.tar.gz"
 const TZDATA_RELEASES_URLS = Dict(
     "1996l" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.2.90/tzdata1996l.tar.gz",
     "1996n" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.2.90/tzdata1996n.tar.gz",
@@ -255,18 +253,13 @@ const TZDATA_RELEASES_URLS = Dict(
     "beta" => "https://github.com/vdayanand/TimeZones.jl/releases/download/v1.2.90/tzdatabeta.tar.gz"
 )
 
-function download_with_fallback(url, destination, fallback_url)
+function download(url, destination)
     tempfile = mktemp()[1]
     try
         BinaryProvider.download(url, tempfile)
     catch ex
         @warn "Failed to download file. Falling back..." ex
-        try
-            BinaryProvider.download(fallback_url, tempfile)
-        catch ex
-            @error "Failed to download from fallback url" ex
-            return
-        end
+        return
     end
     mkpath(dirname(destination))
     mv(tempfile, destination, force=true)
@@ -274,14 +267,14 @@ end
 
 @static if Sys.iswindows()
     if !isfile(WINDOWS_XML_FILE)
-        download_with_fallback(WINDOWS_DOWNLOAD_LINK, WINDOWS_XML_FILE, WINDOWS_DOWNLOAD_LINK_FALLBACK)
+        download(WINDOWS_DOWNLOAD_LINK, WINDOWS_XML_FILE)
     end
 end
 
 version =  tzdata_version()
 download_url = TZDATA_RELEASES_URLS[version]
 archive = joinpath(ARCHIVE_DIR, "tzdata$(version).tar.gz")
-!isfile(archive) && download_with_fallback(download_url, archive, TZDATA_FALLBACK_URL_LATEST)
+!isfile(archive) && download(download_url, archive)
 if !isarchive(archive)
     rm(archive)
     error("Unable to download $version tzdata")
