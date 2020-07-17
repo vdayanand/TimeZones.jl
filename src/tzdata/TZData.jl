@@ -18,7 +18,7 @@ const COMPILED_DIR = joinpath(DEPS_DIR, "compiled")
 
 const ARTIFACT_TOML = joinpath(@__DIR__, "..", "..", "Artifacts.toml")
 
-export ARCHIVE_DIR, TZ_SOURCE_DIR, COMPILED_DIR, REGIONS, LEGACY_REGIONS
+export ARCHIVE_DIR, TZ_SOURCE_DIR, COMPILED_DIR, REGIONS, LEGACY_REGIONS, isarchive
 
 if Sys.iswindows()
     if isdefined(Base, :LIBEXECDIR)
